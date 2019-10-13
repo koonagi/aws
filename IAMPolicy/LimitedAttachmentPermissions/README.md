@@ -1,4 +1,4 @@
-#これは何
+# これは何  
 特権IAMポリシーに関するIAMリソースへのアタッチ及びデタッチを拒否するIAMポリシー。
 
 制御アクション
@@ -13,5 +13,5 @@
 # Usage
 特権IAMポリシーを操作させたくない、IAMユーザーやIAMグループ、IAMロールに対して、このIAMポリシーをアタッチする。
 
-#Link
+# Link
 https://www.cloudnotes.tech/entry/iam-policy-deny
