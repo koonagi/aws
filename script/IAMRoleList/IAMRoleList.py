@@ -2,6 +2,7 @@ import boto3
 import json
 import pprint as pp
 import pandas as pd
+from IPython.display import display
 
 #クライアントの生成
 client = boto3.client('iam')
