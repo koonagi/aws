@@ -207,7 +207,7 @@ lambda_df = create_dataframe(service_name_list,lambda_name_list,role_name_list,p
 ######################################
 
 # AWS サービスごとのDataFrameのマージ
-all_df = pd.concat([ec2_df, lambda_df,glue_df,sfn_df], axis=0)
+all_df = pd.concat([ec2_df, lambda_df], axis=0)
 
 # インデックスの振り直し
 display(all_df.reset_index(drop=True))
