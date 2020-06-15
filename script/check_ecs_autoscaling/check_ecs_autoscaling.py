@@ -12,9 +12,7 @@ asg_client = boto3.client('autoscaling')
 sns_client = boto3.client('sns')
 
 #######################################
-#
 # DRAINING対象のインスタンスの特定し、コンテナインスタンスARN、ステータス、タスク実行数を返す
-#
 #######################################
 
 def detect_draining_instance_target(target_instance_id):
@@ -32,9 +30,7 @@ def detect_draining_instance_target(target_instance_id):
                     }
 
 #######################################
-#
 # コンテナインスタンスをDRAININGに変更
-#
 #######################################
 
 def draining_instance(container_instance_info):
@@ -42,9 +38,7 @@ def draining_instance(container_instance_info):
     ecs_client.update_container_instances_state(cluster=cluster_name,containerInstances=[container_instance_info['container_instance_arn']],status='DRAINING')
 
 #######################################
-#
 # Main
-#
 #######################################
 
 def lambda_handler(event, context):
