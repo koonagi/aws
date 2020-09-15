@@ -30,7 +30,7 @@ def check_task_timeout(cluster_arn,task_arns,timeout,task_def_name):
         res_task_def_name = response['tasks'][0]['taskDefinitionArn'].split('/')[1].split(':')[0]
         deltatime  = dt.datetime.now() - response['tasks'][0]['createdAt'].replace(tzinfo=None)
         
-        if deltatime.seconds//3600 >= timeout and task_def_name == res_task_def_name:
+        if deltatime.total_seconds()//3600 >= timeout and task_def_name == res_task_def_name:
             del_list.append(task_arn)
     
     return del_list
