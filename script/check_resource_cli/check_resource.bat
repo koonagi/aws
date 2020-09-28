@@ -27,3 +27,7 @@ aws stepfunctions  list-state-machines --profile <your_profile_name> --query "st
 
 # Cost
 aws ce get-cost-and-usage  --time-period Start=YYYY-MM-DD,End=YYYY-MM-DD  --granularity MONTHLY   --metrics "BlendedCost" "UnblendedCost" "UsageQuantity"  --group-by Type=DIMENSION,Key=SERVICE Type=TAG,Key=Environment  --profile <your_profile_name> --query "ResultsByTime[].Groups[].{Keys:Keys,BlendedCost:Metrics.BlendedCost.Amount}"|jq -r ".[]|[.Keys[0],.BlendedCost] | @csv"
+
+
+# IAM User
+aws iam list-users --profile <your_profile_name> --query "Users[].{UserName:UserName,Arn:Arn,CreateDate:CreateDate,PasswordLastUsed:PasswordLastUsed}"|jq -r ".[]|[.UserName,.Arn,.CreateDate,.PasswordLastUsed] | @csv"
