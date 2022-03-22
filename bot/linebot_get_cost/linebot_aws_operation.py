@@ -7,7 +7,7 @@ from linebot.models import (MessageEvent, TextMessage, TextSendMessage,)
 from linebot.exceptions import (LineBotApiError, InvalidSignatureError)
 
 events_client = boto3.client('events')
-events_name = 'website_monitor'
+events_name = '<your events name>'
 
 # Line API利用に必要な変数設定
 channel_access_token = os.environ['token']
